@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forest Bird Hunt Adventure</title>
+
+    <style>
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            background-color: lightblue;
+            margin: 10px;
+        }
+
+        .flex-container > div {
+            background-color: #f1f1f1;
+            margin: 10px;
+            padding: 20px;
+            font-size: 18px;
+            border-radius: 8px;
+        }
+
+        header {
+            text-align: center;
+            font-size: 30px;
+            margin: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .flex-container {
+                flex-direction: column;
+                background-color: lightgreen;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        bird hunt
+    </header>
+
+    <div class="flex-container">
+        <div>
+            Click on the locations to find the birds, watch out for the forbidden statue
+        </div>
+    </div>
+
+    <div class="flex-container">
+        <div id="locations">
+            Number of locations checked is zero.
+        </div>
+
+        <div id="score">
+            Score is zero.
+        </div>
+    </div>
+
+    <div class="flex-container">
+        <div>
+            Click for help.
+        </div>
+
+        <div id="help">
+            Help report
+        </div>
+    </div>
+
+</body>
+</html>
