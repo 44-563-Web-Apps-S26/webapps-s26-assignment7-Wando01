@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>cool thing "builds list with divs" </title>
+  <style>
+    .flex-container {
+      display: flex;
+      flex-direction: row;
+      background-color: red;
+    }
+
+    .flex-container > div {
+      background-color: #f1f1f1;
+      margin: 10px;
+      padding: 20px;
+      font-size: 30px;
+    }
+
+    @media (max-width: 600px) {
+      .flex-container {
+        flex-direction: column;
+        background-color: green;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Claude builds list with divs</h1>
+
+  <input type="text" id="item-input" />
+  <button onclick="addEnd()">Add End</button>
+  <button onclick="addFront()">Add Front</button>
+  <button onclick="removeItem()">Remove</button>
+
+  <div class="flex-container" id="target">
+    <div class="divlist">row item 1</div>
+    <div class="divlist">row item 2</div>
+    <div class="divlist">row item 3</div>
+  </div>
+
+</body>
+<script>
+  function addEnd() {
+    let element = document.createElement("div");
+    element.innerHTML = document.getElementById("item-input").value;
+    element.className = "divlist";
+    let container = document.getElementById("target");
+    container.appendChild(element);
+  }
+
+  function addFront() {
+    let element = document.createElement("div");
+    element.innerHTML = document.getElementById("item-input").value;
+    element.className = "divlist";
+    let container = document.getElementById("target");
+    container.insertBefore(element, container.firstChild);
+  }
+
+  function removeItem() {
+    let divListItems = document.getElementsByClassName("divlist");
+    if (divListItems.length > 1) {
+      divListItems[1].remove();
+    } else if (divListItems.length === 1) {
+      divListItems[0].remove();
+    }
+  }
+</script>
+</html>
