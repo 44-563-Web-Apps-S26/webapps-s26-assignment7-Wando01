@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>billy bob reflexes</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<h2>billy bob reflexes</h2>
+
+<div id="target">
+Your time
+</div>
+
+<br>
+
+<div id="counter">
+Count
+</div>
+
+<br>
+
+<button class="btn btn-primary" onclick="beginTime()">
+Go
+</button>
+
+<button class="btn btn-danger" onclick="recordTime()">
+Halt
+</button>
+
+<script>
+
+var haltTime = undefined
+
+function recordTime(){
+    haltTime = Date.now()
+    console.log(haltTime)
+}
+
+function beginTime(){
+
+    haltTime = undefined
+
+    for(let i = 0; i < 6; i++){
+
+        setTimeout(function(){
+
+            document.getElementById("counter").innerHTML = i
+
+        }, (5-i) * 1000)
+
+    }
+
+    setTimeout(function(){
+
+        if(haltTime == undefined){
+
+            document.getElementById("target").innerHTML = "Not soon enough"
+
+        }
+        else{
+
+            var targetTime = Date.now()
+
+            var elapsed = targetTime - haltTime
+
+            document.getElementById("target").innerHTML =
+            "Time was " + elapsed + " milliseconds"
+
+        }
+
+    }, 5000)
+
+}
+
+</script>
+
+</body>
+</html>
